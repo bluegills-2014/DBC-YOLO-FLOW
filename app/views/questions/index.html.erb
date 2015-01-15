@@ -1,25 +1,18 @@
-<<<<<<< HEAD
+
 <h1>Listing Questions</h1>
 
 
-    <% @questions.each do |question| %>
-      <tr>
-        <h3><%= question.title %></h3>
-        <p><%= question.body %></p>
-        <br>
-        <p><%= question.user.username %></p>
-    <% end %>
 
-
-=======
 <%@questions.each do |question|%>
 	<div class = "question_container">
 		<ul>
-			<li><%= link_to(question) do%>
-				<h2><li><%=question.title%></li></h2>
+		  <%= link_to(question) do%>
+				<h2><%=question.title%></h2>
 			<%end%>
-			<li><%=question.body%></li>
->>>>>>> b8e184714ee95eb52bbdde8bd67966404c86f720
+			<%=question.body%>
+      <%= link_to(question.user) do %>
+        <p><%= question.user.username %></p>
+      <%end%>
 
 		</ul>
 	</div>
