@@ -2,12 +2,15 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+<<<<<<< HEAD
 
 require 'spec_helper'
 require 'rails_helper'
 
 
 require 'rspec/autorun'
+=======
+>>>>>>> 3ef9457f4a8b40b63c411540c46aaaa3330f5fc8
 require 'shoulda/matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
 

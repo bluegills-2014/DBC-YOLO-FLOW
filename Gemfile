@@ -35,7 +35,15 @@ gem 'rails_12factor'
 group :development, :test do
   gem 'spring'
   gem 'faker'
+<<<<<<< HEAD
 	gem 'shoulda-matchers', '~> 2.7.0'
+=======
+  gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false
+end
+
+group :development, :test do
+>>>>>>> 3ef9457f4a8b40b63c411540c46aaaa3330f5fc8
   gem 'rspec-rails', '~> 3.0'
 end
 
