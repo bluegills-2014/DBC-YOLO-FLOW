@@ -35,6 +35,7 @@ gem 'rails_12factor'
 group :development, :test do
   gem 'spring'
   gem 'faker'
+	gem 'shoulda-matchers', '~> 2.7.0'
   gem 'rspec-rails', '~> 3.0'
 end
 
