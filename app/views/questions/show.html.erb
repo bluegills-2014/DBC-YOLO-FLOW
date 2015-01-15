@@ -1,1 +1,4 @@
 <%=@question.body%>
+<br>
+<%= link_to("edit", edit_question_path) %>
+<%= link_to "destroy", question_path(@question), method: :delete, data: {confirm: "Are you sure?"} %>
