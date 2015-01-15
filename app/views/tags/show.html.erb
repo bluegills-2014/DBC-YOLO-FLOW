@@ -1,0 +1,13 @@
+<%= @tag.name %>
+
+<% @questions.each do |question| %>
+  <div class = "question_container">
+    <ul>
+      <li><%= link_to(question) do%>
+        <h2><li><%=question.title%></li></h2>
+      <%end%>
+      <li><%=question.body%></li>
+
+    </ul>
+  </div>
+<%end%>
