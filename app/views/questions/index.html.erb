@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Listing Questions</h1>
 
 
@@ -10,4 +11,16 @@
     <% end %>
 
 
+=======
+<%@questions.each do |question|%>
+	<div class = "question_container">
+		<ul>
+			<li><%= link_to(question) do%>
+				<h2><li><%=question.title%></li></h2>
+			<%end%>
+			<li><%=question.body%></li>
+>>>>>>> b8e184714ee95eb52bbdde8bd67966404c86f720
 
+		</ul>
+	</div>
+<%end%>
