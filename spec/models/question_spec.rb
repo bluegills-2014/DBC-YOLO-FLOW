@@ -1,4 +1,4 @@
-
+require 'rails_helper'
 
 RSpec.describe Question do 
 	it { should allow_value("0123456789").for(:body)}
