@@ -5,7 +5,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-    @questions = Question.all.select{|question| question.tags.include? @tag}
+    @questions = @tag.questions
   end
 
   private

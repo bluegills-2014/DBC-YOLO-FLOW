@@ -10,23 +10,23 @@ questions = 5.times.map do
 end
 
 answers = 30.times.map do
-  questions.sample.answers.create!(body: Faker::Lorem.paragraph)
+  questions.sample.answers.create!(body: Faker::Lorem.paragraph, user: users.sample)
 end
 
-20.times do
-  questions.sample.tags.create!(name: Faker::Lorem.word)
+10.times do
+  questions.sample.tags.create!(name: Faker::Lorem.sentence(word_count = 1))
 end
 
 commentables = [questions, answers].flatten
 comments = 20.times.map do
-  commentables.sample.comments.create!(body: Faker::Lorem.sentence)
+  commentables.sample.comments.create!(body: Faker::Lorem.sentence, user: users.sample)
 end
 
 commentables += comments
 
 commentables.each do |item|
   rand(1..30).times do
-    item.votes.create!(user: users.sample)
+    item.votes.create!(user: users.sample, vote_direction: [-1,1].sample)
   end
 end
 
