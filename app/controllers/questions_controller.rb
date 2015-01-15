@@ -8,11 +8,12 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-  	@question = Question.find(params[:id])
+  	 	@question = Question.find(params[:id])
   end
 
   def new
   	@question = Question.new
+
   end
 
   def create
@@ -42,8 +43,8 @@ class QuestionsController < ApplicationController
 
   	redirect_to questions_path
   end
-
   private
+
   	def question_params
   		params.require(:question).permit(:title, :body)
   	end
