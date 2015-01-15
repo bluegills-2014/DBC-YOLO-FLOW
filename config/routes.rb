@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/unanswered' => 'questions#index'
 
-
+  root  'questions#index'
 
 
 end

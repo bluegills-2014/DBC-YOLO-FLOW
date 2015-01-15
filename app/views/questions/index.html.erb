@@ -1,1 +1,13 @@
+<h1>Listing Questions</h1>
+
+
+    <% @questions.each do |question| %>
+      <tr>
+        <h3><%= question.title %></h3>
+        <p><%= question.body %></p>
+        <br>
+        <p><%= question.user.username %></p>
+    <% end %>
+
+
 

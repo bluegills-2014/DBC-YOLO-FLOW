@@ -11,6 +11,9 @@
     <ul>
       <li><%= link_to "Login", login_path, class: 'nav_links' %></li>
       <li><%= link_to "Signup", signup_path, class: 'nav_links' %></li>
+      <% if current_user %>
+        <li><%= link_to "Profile", user_path(@user), class: 'nav_links' %></li>
+      <% end %>
     </ul>
   </nav>
 
