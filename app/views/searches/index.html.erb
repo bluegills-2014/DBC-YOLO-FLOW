@@ -1,0 +1,20 @@
+
+<h2>Results</h2>
+<hr>
+
+
+
+<%@search_results.each do |result|%>
+  <div class = "results_container">
+    <ul>
+      <%= link_to(result) do%>
+        <h2><%=result.title%>?</h2>
+      <%end%>
+      <%=result.body%>
+      <%= link_to(result.user) do %>
+        <p><%= result.user.username %></p>
+      <%end%>
+      <hr>
+    </ul>
+  </div>
+<%end%>
