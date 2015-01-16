@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   root  'questions#index'
 
+  get '/search' => 'searches#index'
+
 
 end
