@@ -2,14 +2,33 @@ $(document).ready(function(){
   $("#search_tags").submit(function(e) {
     e.preventDefault();
     var request = $.get("/tags/find", { q: $('#search_tags > input:first')[0].value },
-    function(data, status) {
-      debugger
-      $.each(data, function(ix, datum) {
-        $('.tag_search_results').append($('<li>').text(datum.name))
+      function(data, status) {
+        debugger
+        $.each(data, function(ix, datum) {
+          $('.tag_search_results').append($('<li>').text(datum.name))
+        })
       })
-    })
 
   })
+
+  $('.up').on('click', function(e){
+    e.preventDefault();
+    var article = $(this).parent();
+    console.log(article)
+    var request = $.ajax({
+      url: this.href,
+      method: 'get',
+      dataType: 'json'
+    })
+
+    request.done(function(response){
+      $('.vote_count', article).html(response.vote_count);
+      // $('.vote-button', article).addClass('voting');
+      // setTimeout(function(){
+        // $('.vote-button', article).removeClass('voting');
+      // }, 500);
+    });
+  });
 })
 
 // $(document).ready(function() {
@@ -28,3 +47,24 @@ $(document).ready(function(){
 //     })
 //   })
 // })
+
+
+// voting button logic
+
+  // $('.post-container').on('click', '.vote-button', function(e){
+  //   e.preventDefault();
+  //   var article = $(this).parent();
+  //   var request = $.ajax({
+  //     url: this.href,
+  //     method: 'get',
+  //     dataType: 'json'
+  //   })
+
+  //   request.done(function(response){
+  //     $('.points', article).text(response.vote_count);
+  //     $('.vote-button', article).addClass('voting');
+  //     setTimeout(function(){
+  //       $('.vote-button', article).removeClass('voting');
+  //     }, 500);
+  //   });
+  // });

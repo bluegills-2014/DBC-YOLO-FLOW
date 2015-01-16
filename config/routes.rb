@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get '/tags/find' => 'tags#find'
   resources :tags
 
+  get 'vote' => 'votes#create'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
 
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'

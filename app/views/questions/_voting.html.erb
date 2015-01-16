@@ -1,0 +1,10 @@
+
+<div id ="vote">
+<%= link_to "Up", vote_path(:vote => {:vote_direction => 1, :voteable_id => voteable.id, :voteable_type => voteable.class.to_s} ), class: "1", id=%>
+
+<span class = 'vote_count'><%=voteable.vote_sum%></span>
+
+<%= link_to "Down", vote_path(:vote => {:vote_direction => -1, :voteable_id => voteable.id, :voteable_type => voteable.class.to_s} ), class: 'down'%>
+</div>
+
+

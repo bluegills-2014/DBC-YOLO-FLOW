@@ -3,6 +3,7 @@
 
 <%@questions.each do |question|%>
 	<div class = "question_container">
+    <%= render partial: "voting", locals: {voteable:question} %>
 		<ul>
 		  <%= link_to(question) do%>
 				<h2><%=question.title%>?</h2>
