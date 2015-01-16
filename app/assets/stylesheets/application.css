@@ -83,11 +83,19 @@ a {
 }
 
 .header h1 a {
+  color: #FF9900;
+}
+
+.header h1 span {
   color: black;
 }
 
 .header ul li a {
   color: #f2f2f2;
+}
+
+.header ul li:hover {
+  background-color: #FF9900;
 }
 
 .content, .resource_links {
