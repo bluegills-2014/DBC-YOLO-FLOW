@@ -1,3 +1,4 @@
+<%= render partial: "voting", locals: {voteable: @question} %>
 <%=@question.body%>
 <br>
 <%= link_to("edit", edit_question_path) %>

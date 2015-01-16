@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   })
 
-  $('.up').on('click', function(e){
+  $('.up, .down').on('click', function(e){
     e.preventDefault();
     var article = $(this).parent();
     console.log(article)
