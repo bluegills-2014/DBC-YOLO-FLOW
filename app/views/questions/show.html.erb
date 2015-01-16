@@ -1,4 +1,8 @@
+<p><%= @question.title %></p>
+<hr><br>
 <%=@question.body%>
 <br>
+<% if @user == current_user %>
 <%= link_to("edit", edit_question_path) %>
 <%= link_to "destroy", question_path(@question), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>

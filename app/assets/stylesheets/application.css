@@ -49,6 +49,16 @@ nav ul li a {
   height: 20px;
 }
 
+.new_question input[type="text"] {
+  width: 50%;
+  height: 25px;
+}
+
+.new_question #question_body {
+  width: 50%;
+  height: 200px;
+}
+
 a {
   text-decoration: none;
 }

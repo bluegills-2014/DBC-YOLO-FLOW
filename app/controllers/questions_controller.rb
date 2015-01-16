@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @user = @question.user
   end
 
   def edit
