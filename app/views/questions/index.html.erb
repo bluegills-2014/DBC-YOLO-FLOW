@@ -1,0 +1,18 @@
+<p>Top Questions</p>
+<hr>
+
+<%@questions.each do |question|%>
+	<div class = "question_container">
+   <%= question.vote_sum %>
+		<ul>
+		  <%= link_to(question) do%>
+				<h2><%=question.title%>?</h2>
+			<%end%>
+			<%=question.body%>
+      <%= link_to(question.user) do %>
+        <p><%= question.user.username %></p>
+      <%end%>
+      <hr>
+		</ul>
+	</div>
+<%end%>

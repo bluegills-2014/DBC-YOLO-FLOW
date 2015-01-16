@@ -1,16 +1,98 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+
+// $(document).ready(function(){
+//   $("#search_tags").submit(function(e) {
+//     e.preventDefault();
+//     var request = $.get("/tags/find", { q: $('#search_tags > input:first')[0].value },
+//     function(data, status) {
+//       debugger
+//       $.each(data, function(ix, datum) {
+//         $('.tag_search_results').append($('<li>').text(datum.name))
+//       })
+//     })
+
+//   })
+// })
+
+$(document).ready(function(){
+  $('.up, .down').on('click', function(e){
+    e.preventDefault();
+    var article = $(this).parent();
+    console.log(article)
+    var request = $.ajax({
+      url: this.href,
+      method: 'get',
+      dataType: 'json'
+    })
+
+    request.done(function(response){
+      $('.vote_count', article).html(response.vote_count);
+      // $('.vote-button', article).addClass('voting');
+      // setTimeout(function(){
+        // $('.vote-button', article).removeClass('voting');
+      // }, 500);
+    });
+  });
+
+  var answerForm = $("#answer_form");
+  answerForm.hide();
+   $("#answer_question_button").on('click', function(e) {
+     e.preventDefault();
+
+     $(this).hide();
+     answerForm.show();
+  });
+
+   var commentForm = $('#comment_form');
+   commentForm.hide();
+   $('#comment_answer_button').on('click', function(e){
+    e.preventDefault();
+
+    $(this).hide();
+    commentForm.show();
+   })
+
+})
+
+
+// $(document).ready(function() {
+//   $('#search_tags').submit(function(e) {
+//     e.preventDefault();
+//     var form = $(this);
+//     var data = form.serialize();
+//     var request = $.ajax({
+//       url: '/tags/find',
+//       method: 'get',
+//       data: data
+//     });
+
+//     request.done(function(response){
+//       $('.tag_search_results').append($('<li>').text(response.name))
+//     })
+//   })
+// })
+
+
+
+
+
+
+// voting button logic
+
+  // $('.post-container').on('click', '.vote-button', function(e){
+  //   e.preventDefault();
+  //   var article = $(this).parent();
+  //   var request = $.ajax({
+  //     url: this.href,
+  //     method: 'get',
+  //     dataType: 'json'
+  //   })
+
+  //   request.done(function(response){
+  //     $('.points', article).text(response.vote_count);
+  //     $('.vote-button', article).addClass('voting');
+  //     setTimeout(function(){
+  //       $('.vote-button', article).removeClass('voting');
+  //     }, 500);
+  //   });
+  // });
+

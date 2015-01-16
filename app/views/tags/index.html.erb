@@ -1,0 +1,18 @@
+<p>Tags</p>
+<hr><br>
+<%= form_tag("/tags/find", method: "get", id: "search_tags") do %>
+  <%= label_tag "Type to find tags:" %>
+  <%= text_field_tag :q, params[:q], placeholder: "search", autocomplete: "off" %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<div class="tag_search_results">
+</div>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <%= link_to(tag) do %>
+      <li><%= tag.name %></li>
+    <% end %>
+  <% end %>
+</ul>
