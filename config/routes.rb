@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   resources :questions
-  resources :users
+  resources :users, except: :destroy
   get '/tags/find' => 'tags#find'
-  resources :tags
+  resources :tags, except: [:destroy, :edit]
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

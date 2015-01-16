@@ -18,6 +18,10 @@ class TagsController < ApplicationController
     @tag_results.to_json
   end
 
+  def create
+
+  end
+
   private
 
   def tag_params
