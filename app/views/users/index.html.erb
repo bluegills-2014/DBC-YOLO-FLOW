@@ -11,8 +11,12 @@
 
     <% @users.each do |user| %>
       <tr>
-        <h3><%= user.username %></h3>
+
+        <%= link_to(user) do %>
+          <h3><p><%= user.username %></p></h3>
+        <%end%>
         <h4><%= user.email %></h4>
+
         <br>
 
     <% end %>
