@@ -33,13 +33,23 @@ $(document).ready(function(){
     });
   });
 
-  var answerForm = $("#answer_form").hide();
+  var answerForm = $("#answer_form");
+  answerForm.hide();
    $("#answer_question_button").on('click', function(e) {
      e.preventDefault();
 
      $(this).hide();
      answerForm.show();
-  })
+  });
+
+   var commentForm = $('#comment_form');
+   commentForm.hide();
+   $('#comment_answer_button').on('click', function(e){
+    e.preventDefault();
+
+    $(this).hide();
+    commentForm.show();
+   })
 
 })
 

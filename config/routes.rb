@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :tags, except: [:destroy, :edit]
   # resources :answers, except: :index
   post '/questions/:id/answers' => 'answers#create'
+  post '/answers/:id/comments' => 'comments#create'
+  post '/questions/:id/comments' => 'comments#create'
 
   get 'vote' => 'votes#create'
 

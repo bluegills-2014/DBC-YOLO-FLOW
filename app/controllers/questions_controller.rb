@@ -2,9 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.all
-    @questions = @questions.sort{|a,b| b.vote_sum <=> a.vote_sum}
-
+    @questions = Question.all.sort{|a,b| b.vote_sum <=> a.vote_sum}
   end
 
   def show

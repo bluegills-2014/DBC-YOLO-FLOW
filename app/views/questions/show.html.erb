@@ -1,4 +1,4 @@
-<p><%= @question.title %></p>
+<h1><%= @question.title.capitalize %>?</h1>
 <hr><br>
 <%= render partial: "voting", locals: {voteable: @question} %>
 
@@ -7,6 +7,7 @@
 <% if @user == current_user %>
 <%= link_to("edit", edit_question_path) %>
 <%= link_to "destroy", question_path(@question), method: :delete, data: {confirm: "Are you sure?"} %>
+
 <% end %>
 <br>
 <div class="answers"></div>
@@ -16,5 +17,44 @@
   <%= label_tag :Answer %> <br>
   <%= text_area_tag "answer[body]" %><br>
   <%= submit_tag "Submit answer" %>
+<%end%>
+
+<br>
+
+<%= button_tag "add comment", id: "comment_answer_button" %>
+
+<%= form_tag ("/questions/#{@question.id}/comments"), id: "comment_form"  do %>
+  <%= label_tag :Comment %> <br>
+  <%= text_area_tag "comment[body]" %><br>
+  <%= submit_tag "Submit comment" %>
+<%end%>
+
+
+<hr>
+<h2>Comments</h2>
+
+
+<% @question.comments.each do |comment| %>
+
+<ul>
+    <%= link_to(@question) do%>
+        <li><%=comment.body%></li>
+    <%end%>
+</ul>
+
+<%end%>
+
+<hr>
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+
+<ul>
+<%= render partial: "voting", locals: {voteable: answer} %>
+
+    <%= link_to(@question) do%>
+        <li><%=answer.body%></li>
+    <%end%>
+</ul>
+
 <%end%>
 

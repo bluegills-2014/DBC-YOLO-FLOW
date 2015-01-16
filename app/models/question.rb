@@ -13,6 +13,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   def vote_sum
-    self.votes.map{|vote| vote.vote_direction}.reduce(:+)
+    sum = self.votes.map{|vote| vote.vote_direction}.reduce(:+)
+    sum ? sum : 0
   end
 end
