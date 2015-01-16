@@ -1,24 +1,24 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
     @questions = Question.all
   end
 
   def show
-  	@question = Question.find(params[:id])
   end
 
   def edit
-  	@question = Question.find(params[:id])
   end
 
   def new
   	@question = Question.new
-
   end
 
   def create
+    @user = User.find(session[:user_id])
   	@question = Question.new(question_params)
+    @question.user = @user
 
   	if @question.save
   		redirect_to @question
@@ -27,10 +27,12 @@ class QuestionsController < ApplicationController
   	end
   end
 
+  def tag_list
+
+  end
+
 
   def update
-  	@question = Question.find(params[:id])
-
   	if @question.update(question_params)
   		redirect_to @question
   	else
@@ -39,14 +41,18 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-  	@question = Question.find(params[:id])
   	@question.destroy
 
   	redirect_to questions_path
   end
+
   private
 
-  	def question_params
-  		params.require(:question).permit(:title, :body)
-  	end
+  def set_question
+    @question = Question.find(params[:id])
+  end
+
+	def question_params
+		params.require(:question).permit(:title, :body)
+	end
 end

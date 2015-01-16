@@ -1,11 +1,14 @@
 <p>Ask Away</p>
 <hr><br>
+<% if logged_in? %>
 <%= form_for @question do |q|%>
 	<%= q.label :Title %>
 	<%= q.text_field :title%> <br><br>
 	<%=q.label :Description %><br>
 	<%=q.text_area :body %><br>
-  <%= q.label :Tags %><br>
-  <%= q.text_field :tags %><br>
-	<%=q.submit%>
-<%end%>
+ 	<%=q.submit%>
+  <%end%>
+<% else %>
+ <p>"Please login to ask a question"</p>
+<% end %>
+
