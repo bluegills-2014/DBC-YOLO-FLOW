@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    @questions = @questions.sort{|a,b| b.vote_sum <=> a.vote_sum}
 
   end
 

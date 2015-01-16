@@ -3,6 +3,7 @@
 
 <%@questions.each do |question|%>
 	<div class = "question_container">
+   <%= question.vote_sum %>
 		<ul>
 		  <%= link_to(question) do%>
 				<h2><%=question.title%>?</h2>

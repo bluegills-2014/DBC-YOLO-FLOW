@@ -25,9 +25,7 @@ end
 commentables += comments
 
 commentables.each do |item|
-  rand(1..30).times do
     item.votes.create!(user: users.sample, vote_direction: [-1,1].sample)
-  end
 end
 
 

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # resources :answers, except: :index
   post '/questions/:id/answers' => 'answers#create'
 
+  get 'vote' => 'votes#create'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'

@@ -8,4 +8,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :votes, as: :voteable
   has_many :comments, as: :commentable
+
+  def vote_sum
+    self.votes.map{|vote| vote.vote_direction}.reduce(:+)
+  end
 end

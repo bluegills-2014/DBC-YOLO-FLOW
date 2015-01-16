@@ -1,5 +1,7 @@
 <p><%= @question.title %></p>
 <hr><br>
+<%= render partial: "voting", locals: {voteable: @question} %>
+
 <%=@question.body%>
 <br><br>
 <% if @user == current_user %>
@@ -15,5 +17,4 @@
   <%= text_area_tag "answer[body]" %><br>
   <%= submit_tag "Submit answer" %>
 <%end%>
-
 

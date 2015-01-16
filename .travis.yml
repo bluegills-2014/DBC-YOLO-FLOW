@@ -1,4 +1,8 @@
 language: ruby
-  rvm:
-    - 2.0.0
-    - 2.1.5
+rvm:
+  - 2.0.0
+addons:
+  postgresql: "9.3"
+
+before_script:
+  - psql -c 'create database dbc_yolo_flow_test;' -U postgres
