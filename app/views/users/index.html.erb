@@ -1,10 +1,22 @@
-<h1>Listing Users</h1>
+<p>Users</p>
+<hr><br>
+<%= form_tag("/users", method: "get", id: "search_users") do %>
+  <%= label_tag "Type to find users:" %>
+  <%= text_field_tag :q, params[:q], placeholder: "search", autocomplete: "off" %>
+  <%= submit_tag "Submit" %>
+<% end %>
 
+<div class="user_search_results">
+</div>
 
     <% @users.each do |user| %>
       <tr>
-        <h3><%= user.username %></h3>
+
+        <%= link_to(user) do %>
+          <h3><p><%= user.username %></p></h3>
+        <%end%>
         <h4><%= user.email %></h4>
+
         <br>
 
     <% end %>

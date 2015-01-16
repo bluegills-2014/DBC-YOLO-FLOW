@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
   resources :questions
-  resources :users
-  resources :tags
+  resources :users, except: :destroy
+  get '/tags/find' => 'tags#find'
+  resources :tags, except: [:destroy, :edit]
+  # resources :answers, except: :index
+  post '/questions/:id/answers' => 'answers#create'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
 
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
   get '/unanswered' => 'questions#index'
 
   root  'questions#index'
+
+  get '/search' => 'searches#index'
 
 
 end
