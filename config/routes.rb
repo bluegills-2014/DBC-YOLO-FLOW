@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :users
+  get '/tags/find' => 'tags#find'
   resources :tags
 
   get 'login' => 'sessions#new'
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   get '/unanswered' => 'questions#index'
 
   root  'questions#index'
+
+  get '/search' => 'searches#index'
 
 
 end

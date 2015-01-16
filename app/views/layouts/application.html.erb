@@ -3,33 +3,47 @@
 <head>
   <title>DbcYoloFlow</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<!--   # <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+ -->
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <script data-turbolinks-track="true" src="/assets/application.js"></script>  
+ <%= csrf_meta_tags %>
 </head>
 <body>
   <nav>
     <ul>
       <% if logged_in? %>
-          <li><%= link_to "Profile", user_path(@user), class: 'nav_links' %></li>
-          <li><%= link_to "Log Out", logout_path, method: :delete,  data: {confirm: "Are you sure?"}, class: 'nav_links' %></li>
-        <% else %>
-          <li><%= link_to "Login", login_path, class: 'nav_links' %></li>
-          <li><%= link_to "Signup", signup_path, class: 'nav_links' %></li>
+      <li><%= link_to "Profile", user_path(@user), class: 'nav_links' %></li>
+      <li><%= link_to "Log Out", logout_path, method: :delete,  data: {confirm: "Are you sure?"}, class: 'nav_links' %></li>
+      <% else %>
+      <li><%= link_to "Login", login_path, class: 'nav_links' %></li>
+      <li><%= link_to "Signup", signup_path, class: 'nav_links' %></li>
       <% end %>
-    </ul>
-  </nav>
+      <li><%= form_tag("/search", method: "get", id: "search") do %>
+       <%= text_field_tag :q, params[:q], placeholder: "search", autocomplete: "off" %></li>
+       <% end %> 
+     </ul>
+   </nav>
 
-  <h1 id="logo">dbc-yolo-flow</h1>
+   <div class="header">
 
-  <ul>
-    <li><%= link_to "Questions", questions_path, class: 'menus' %></li>
-    <li><%= link_to "Tags", tags_path,  class: 'menus' %></li>
-    <li><%= link_to "Users", users_path,  class: 'menus' %></li>
-    <li><%= link_to "Unanswered", unanswered_path,  class: 'menus' %></li>
-    <li><%= link_to "Ask Question", new_question_path, class: 'menus' %></li>
-  </ul>
 
-  <%= yield %>
+    <div class="resource_links">
+      <h1><%= link_to "dbc<span>yoloflow</span>".html_safe, questions_path %></h1>
+      <ul>
+        <li><%= link_to "Questions", questions_path %></li>
+        <li><%= link_to "Tags", tags_path %></li>
+        <li><%= link_to "Users", users_path  %></li>
+        <li><%= link_to "Unanswered", unanswered_path %></li>
+        <li><%= link_to "Ask Question", new_question_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+      <%= yield %>
+  </div>
 
 </body>
 </html>

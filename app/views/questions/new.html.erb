@@ -1,7 +1,11 @@
+<p>Ask Away</p>
+<hr><br>
 <%= form_for @question do |q|%>
-	<%= q.label :title %>
-	<%= q.text_field :title%> <br>
-	<%=q.label :body %>
-	<%=q.text_field :body %><br>
+	<%= q.label :Title %>
+	<%= q.text_field :title%> <br><br>
+	<%=q.label :Description %><br>
+	<%=q.text_area :body %><br>
+  <%= q.label :Tags %><br>
+  <%= q.text_field :tags %><br>
 	<%=q.submit%>
 <%end%>
