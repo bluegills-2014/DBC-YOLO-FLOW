@@ -80,6 +80,7 @@ a {
   padding-top: 8px;
   margin: 5px;
   background-color: #858d93;
+  cursor: pointer;
 }
 
 .header h1 a {
