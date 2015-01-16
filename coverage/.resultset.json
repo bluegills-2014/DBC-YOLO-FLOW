@@ -43,6 +43,18 @@
         1,
         null
       ],
+      "/Users/apprentice/Desktop/DBC-YOLO-FLOW/app/models/comment.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/apprentice/Desktop/DBC-YOLO-FLOW/app/models/tag.rb": [
         1,
         1,
@@ -100,18 +112,6 @@
         1,
         null
       ],
-      "/Users/apprentice/Desktop/DBC-YOLO-FLOW/app/models/comment.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/apprentice/Desktop/DBC-YOLO-FLOW/app/models/questions_tag.rb": [
         1,
         1,
@@ -119,6 +119,6 @@
         null
       ]
     },
-    "timestamp": 1421364678
+    "timestamp": 1421365387
   }
 }
