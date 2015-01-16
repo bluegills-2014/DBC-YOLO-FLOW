@@ -7,7 +7,7 @@
 
  -->
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
- <script data-turbolinks-track="true" src="/assets/application.js"></script>  
+ <script data-turbolinks-track="true" src="/assets/application.js"></script>
  <%= csrf_meta_tags %>
 </head>
 <body>
@@ -22,7 +22,7 @@
       <% end %>
       <li><%= form_tag("/search", method: "get", id: "search") do %>
        <%= text_field_tag :q, params[:q], placeholder: "search", autocomplete: "off" %></li>
-       <% end %> 
+       <% end %>
      </ul>
    </nav>
 
