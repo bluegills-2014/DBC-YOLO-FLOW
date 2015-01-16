@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users, except: :destroy
   get '/tags/find' => 'tags#find'
   resources :tags, except: [:destroy, :edit]
+  # resources :answers, except: :index
+  post '/questions/:id/answers' => 'answers#create'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

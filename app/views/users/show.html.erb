@@ -3,12 +3,7 @@
 <h3>Email:</h3>
 <h3><%= @user.email %></h3>
 <br>
-<% if @user == current_user %>
-<p><%= link_to('Edit Profile', edit_user_path) %>
-  <% end %>
-  <hr><br>
-
-<%@user.questions.each do |question|%>
+<% @user.questions.each do |question|%>
   <div class = "question_container">
     <ul>
       <h3>Questions</h3>
@@ -17,6 +12,12 @@
       <%end%>
     </ul>
   </div>
-<%end%>
+<%end%><br><br>
+
+<% if @user == current_user %>
+<p><%= link_to('Edit Profile', edit_user_path) %>
+  <% end %>
+  <hr><br>
+
 
 

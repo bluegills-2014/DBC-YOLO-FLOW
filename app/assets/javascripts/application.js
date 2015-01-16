@@ -1,16 +1,16 @@
-$(document).ready(function(){
-  $("#search_tags").submit(function(e) {
-    e.preventDefault();
-    var request = $.get("/tags/find", { q: $('#search_tags > input:first')[0].value },
-    function(data, status) {
-      debugger
-      $.each(data, function(ix, datum) {
-        $('.tag_search_results').append($('<li>').text(datum.name))
-      })
-    })
+// $(document).ready(function(){
+//   $("#search_tags").submit(function(e) {
+//     e.preventDefault();
+//     var request = $.get("/tags/find", { q: $('#search_tags > input:first')[0].value },
+//     function(data, status) {
+//       debugger
+//       $.each(data, function(ix, datum) {
+//         $('.tag_search_results').append($('<li>').text(datum.name))
+//       })
+//     })
 
-  })
-})
+//   })
+// })
 
 // $(document).ready(function() {
 //   $('#search_tags').submit(function(e) {
@@ -28,3 +28,13 @@ $(document).ready(function(){
 //     })
 //   })
 // })
+
+$(document).ready(function() {
+    var answerForm = $("#answer_form").hide();
+  $("#answer_question_button").on('click', function(e) {
+     e.preventDefault();
+
+     $(this).hide();
+     answerForm.show();
+  })
+})

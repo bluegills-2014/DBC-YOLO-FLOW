@@ -119,6 +119,10 @@ a {
   padding-top: 25px;
 }
 
+#answer_form #answer_body {
+  width: 50%;
+  height: 200px;
+}
 
 
 
