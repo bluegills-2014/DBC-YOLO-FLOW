@@ -3,7 +3,7 @@
 <hr>
 
 
-
+<% if @search_results.length > 0 %>
 <%@search_results.each do |result|%>
   <div class = "results_container">
     <ul>
@@ -16,5 +16,9 @@
       <%end%>
       <hr>
     </ul>
+    <%end%>
+    <% else %>
+    <p>"Your search returned no results"</p>
+    <% end %>
   </div>
-<%end%>
+
