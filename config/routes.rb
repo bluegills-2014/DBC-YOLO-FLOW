@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :users
+  get '/tags/find' => 'tags#find'
   resources :tags
 
   get 'login' => 'sessions#new'

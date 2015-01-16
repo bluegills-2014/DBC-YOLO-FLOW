@@ -8,6 +8,16 @@ class TagsController < ApplicationController
     @questions = @tag.questions
   end
 
+  def find
+    query = params[:q]
+    @tag_results = Tag.where("name like '%{query}'").map do |tag|
+      { name: tag.name }
+    end
+
+    content_type :json
+    @tag_results.to_json
+  end
+
   private
 
   def tag_params
